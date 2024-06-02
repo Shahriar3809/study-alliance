@@ -6,7 +6,7 @@ import useAxiosSecure from "./useAxiosSecure";
 const useTutor = () => {
    const { user, loading } = useAuth();
    const axiosSecure = useAxiosSecure();
-   const { data: isTutor, isPending: isTutorLoading } = useQuery({
+   const { data: isTutor, isPending: isTutorLoading, error } = useQuery({
      queryKey: ["tutor"],
      enabled: !loading,
      queryFn: async () => {
@@ -14,7 +14,7 @@ const useTutor = () => {
        return res.data?.tutor;
      },
    });
-   return { isTutor, isTutorLoading };
+   return { isTutor, isTutorLoading, error };
 };
 
 export default useTutor;
