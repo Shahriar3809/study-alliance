@@ -21,6 +21,7 @@ import ManageNotes from "../Pages/Dashboard/Student/ManageNotes";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import TutorRoute from "./TutorRoute";
+import UploadMaterialsForm from "../Pages/Dashboard/Tutor/UploadMaterialsForm";
 
  const router = createBrowserRouter([
    {
@@ -100,7 +101,19 @@ import TutorRoute from "./TutorRoute";
        },
        {
          path: "/dashboard/tutor/upload-materials",
-         element: <UploadMaterials></UploadMaterials>,
+         element: (
+           <TutorRoute>
+             <UploadMaterials></UploadMaterials>
+           </TutorRoute>
+         ),
+       },
+       {
+         path: "/dashboard/tutor/upload-materials/:id",
+         element: (
+           <TutorRoute>
+             <UploadMaterialsForm></UploadMaterialsForm>
+           </TutorRoute>
+         ),
        },
        {
          path: "/dashboard/tutor/my-all-materials",

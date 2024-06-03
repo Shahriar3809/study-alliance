@@ -21,13 +21,13 @@ const SessionCardForAdmin = ({ item, refetch }) => {
 
   const handleApprove = (_id) => {
     Swal.fire({
-      title: "Specify Amount",
+      title: "Specify the Amount",
       html:
         '<label for="fee">Session Fee:</label>' +
         '<input id="fee" class="swal2-input" type="number" placeholder="$ If free, write 0">',
       focusConfirm: false,
       showCancelButton: true,
-      confirmButtonText: "Submit",
+      confirmButtonText: "Approve",
       preConfirm: () => {
         const fees = Swal.getPopup().querySelector("#fee").value;
         
