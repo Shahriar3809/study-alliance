@@ -22,11 +22,14 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import TutorRoute from "./TutorRoute";
 import UploadMaterialsForm from "../Pages/Dashboard/Tutor/UploadMaterialsForm";
+import ErrorPage from "../Pages/ErrorPage";
+import UpdateMaterialPage from "../Pages/Dashboard/Tutor/UpdateMaterialPage";
 
  const router = createBrowserRouter([
    {
      path: "/",
      element: <Main></Main>,
+     errorElement: <ErrorPage></ErrorPage>,
      children: [
        {
          path: "/",
@@ -46,6 +49,7 @@ import UploadMaterialsForm from "../Pages/Dashboard/Tutor/UploadMaterialsForm";
    {
      path: "dashboard",
      element: <Dashboard></Dashboard>,
+     errorElement: <ErrorPage></ErrorPage>,
      children: [
        // User
        {
@@ -112,6 +116,14 @@ import UploadMaterialsForm from "../Pages/Dashboard/Tutor/UploadMaterialsForm";
          element: (
            <TutorRoute>
              <UploadMaterialsForm></UploadMaterialsForm>
+           </TutorRoute>
+         ),
+       },
+       {
+         path: "/dashboard/tutor/update-materials/:id",
+         element: (
+           <TutorRoute>
+             <UpdateMaterialPage></UpdateMaterialPage>
            </TutorRoute>
          ),
        },

@@ -167,4 +167,3 @@ const UploadMaterialsForm = () => {
 export default UploadMaterialsForm;
 
 
- {/* <input id="passwordConfirmation" type="password" className=""></input> */}

@@ -12,7 +12,7 @@ const {user} = useAuth();
 const axiosSecure = useAxiosSecure();
 
 const { data: approvedSession = [] } = useQuery({
-  queryKey: ["myApprovedSession"],
+  queryKey: ["myApprovedSessions"],
   queryFn: async () => {
     const res = await axiosSecure.get(`/my-approved-session/${user?.email}`);
     return res.data;
@@ -22,7 +22,7 @@ const { data: approvedSession = [] } = useQuery({
 // console.log(approvedSession)
     return (
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        {approvedSession.map((item) => (
+        {approvedSession && approvedSession.map((item) => (
           <ApprovedSessionCard
             key={item._id}
             item={item}

@@ -1,19 +1,20 @@
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+// import { Link } from "react-router-dom";
 
-const SeeMaterialTutor = ({ item, refetch }) => {
+
+const AllMaterialsCard = ({ item, refetch }) => {
   const { _id, image, link, materialsTitle } = item;
-
   const handleClick = () => {
     // You can add any additional actions here before redirecting
     // For example, logging analytics events
     console.log("Link clicked:", link);
   };
-  const axiosSecure = useAxiosSecure()
+
+  const axiosSecure = useAxiosSecure();
+  
   const handleDeleteMaterial = (_id) => {
-    
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -24,23 +25,22 @@ const SeeMaterialTutor = ({ item, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log(_id)
-         axiosSecure.delete(`/materials/tutor/${_id}`).then((res) => {
-            // console.log(res.data);
-            if (res.data.deletedCount > 0) {
+        console.log(_id);
+        axiosSecure.delete(`/materials/tutor/${_id}`).then((res) => {
+          // console.log(res.data);
+          if (res.data.deletedCount > 0) {
             refetch();
 
             Swal.fire({
-                title: "Deleted!",
-                text: "This Material has been deleted.",
-                icon: "success",
+              title: "Deleted!",
+              text: "This Material has been deleted.",
+              icon: "success",
             });
-            }
-           
-  });
+          }
+        });
       }
     });
-  }
+  };
 
   return (
     <div>
@@ -58,8 +58,7 @@ const SeeMaterialTutor = ({ item, refetch }) => {
           </h1>
           <h1 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">
             <p className="">
-              See the link to see Materials:{" "}
-              <br />
+              See the link to see Materials: <br />
               <a
                 href={link}
                 onClick={handleClick}
@@ -72,12 +71,7 @@ const SeeMaterialTutor = ({ item, refetch }) => {
             </p>
           </h1>
           <div className="flex justify-between mt-3 item-center">
-            <Link
-              to={`/dashboard/tutor/update-materials/${_id}`}
-              className="px-3 rounded-md py-4 bg-green-600 font-bold text-white"
-            >
-              Update
-            </Link>
+           
             <button
               onClick={() => handleDeleteMaterial(_id)}
               className="px-3 rounded-md py-4 bg-yellow-600 text-black font-bold"
@@ -91,9 +85,8 @@ const SeeMaterialTutor = ({ item, refetch }) => {
   );
 };
 
-SeeMaterialTutor.propTypes = {
+AllMaterialsCard.propTypes = {
   item: PropTypes.object,
   refetch: PropTypes.any,
 };
-
-export default SeeMaterialTutor;
+export default AllMaterialsCard;
