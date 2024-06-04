@@ -12,7 +12,7 @@ import AllTutorSession from "../Pages/Dashboard/Tutor/AllTutorSession";
 import UploadMaterials from "../Pages/Dashboard/Tutor/UploadMaterials";
 import CreateStudySession from "../Pages/Dashboard/Tutor/CreateStudySession";
 import ViewAllMaterials from "../Pages/Dashboard/Tutor/ViewAllMaterials";
-import ViewAllNotes from "../Pages/Dashboard/Tutor/ViewAllNotes";
+// import ViewAllNotes from "../Pages/Dashboard/Tutor/ViewAllNotes";
 
 import MyPersonalBookedSession from "../Pages/Dashboard/Student/MyPersonalBookedSession";
 import MyPersonalAllMaterials from "../Pages/Dashboard/Student/MyPersonalAllMaterials";
@@ -24,6 +24,7 @@ import TutorRoute from "./TutorRoute";
 import UploadMaterialsForm from "../Pages/Dashboard/Tutor/UploadMaterialsForm";
 import ErrorPage from "../Pages/ErrorPage";
 import UpdateMaterialPage from "../Pages/Dashboard/Tutor/UpdateMaterialPage";
+import SessionDetailsPage from "../Pages/SessionDetailsPage";
 
  const router = createBrowserRouter([
    {
@@ -42,6 +43,14 @@ import UpdateMaterialPage from "../Pages/Dashboard/Tutor/UpdateMaterialPage";
        {
          path: "/register",
          element: <Register></Register>,
+       },
+       {
+         path: "/session-details/:id",
+         element: (
+           <PrivateRoute>
+             <SessionDetailsPage></SessionDetailsPage>
+           </PrivateRoute>
+         ),
        },
      ],
    },
@@ -132,14 +141,6 @@ import UpdateMaterialPage from "../Pages/Dashboard/Tutor/UpdateMaterialPage";
          element: (
            <TutorRoute>
              <ViewAllMaterials></ViewAllMaterials>
-           </TutorRoute>
-         ),
-       },
-       {
-         path: "/dashboard/tutor/all-notes",
-         element: (
-           <TutorRoute>
-             <ViewAllNotes></ViewAllNotes>
            </TutorRoute>
          ),
        },

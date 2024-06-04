@@ -71,12 +71,6 @@ const Dashboard = () => {
                     View All My Materials
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink to="/dashboard/tutor/all-notes">
-                    <FaList />
-                    View All Notes
-                  </NavLink>
-                </li>
               </>
             )}
             {isAdmin === true && (
