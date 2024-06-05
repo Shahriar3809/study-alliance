@@ -89,7 +89,11 @@ const MySessionCardStudent = ({ item, isButton }) => {
           <p>.....................</p>
         </div>
       </div>
-      <Link to={`/session-details/${sessionId}`} className="btn btn-primary">See Details</Link>
+      {isButton || (
+        <Link to={`/session-details/${sessionId}`} className="btn btn-primary">
+          See Details
+        </Link>
+      )}
       <div>
         {isButton && (
           <Link

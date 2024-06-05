@@ -26,7 +26,7 @@ const CreateNote = () => {
       }
     };
     return (
-      <div className="border-2 rounded-md shadow-lg border-sky-800 p-10">
+      <div className="border-2 bg-gray-100 rounded-md shadow-lg border-sky-800 p-10">
         <h2 className="text-center font-semibold text-3xl underline mb-8">Create Your Personal Note Here:</h2>
         <form onSubmit={handleSubmitNote}>
           <div className="mb-4">
