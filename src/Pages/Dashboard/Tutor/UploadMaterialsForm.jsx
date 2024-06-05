@@ -23,6 +23,8 @@ const UploadMaterialsForm = () => {
     })
 
 
+    console.log(data)
+
   const handleUploadMaterials = async (e) => {
     e.preventDefault();
     const form = e.target;

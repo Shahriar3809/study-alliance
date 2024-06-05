@@ -25,6 +25,8 @@ import UploadMaterialsForm from "../Pages/Dashboard/Tutor/UploadMaterialsForm";
 import ErrorPage from "../Pages/ErrorPage";
 import UpdateMaterialPage from "../Pages/Dashboard/Tutor/UpdateMaterialPage";
 import SessionDetailsPage from "../Pages/SessionDetailsPage";
+// import SeeAllMatrialsPage from "../Pages/Dashboard/Student/SeeAllMatrialsPage";
+import ViewAllMaterialsStudent from "../Pages/Dashboard/Student/ViewAllMaterialsStudent";
 
  const router = createBrowserRouter([
    {
@@ -49,6 +51,14 @@ import SessionDetailsPage from "../Pages/SessionDetailsPage";
          element: (
            <PrivateRoute>
              <SessionDetailsPage></SessionDetailsPage>
+           </PrivateRoute>
+         ),
+       },
+       {
+         path: "/see-all-materials/:sessionId",
+         element: (
+           <PrivateRoute>
+             <ViewAllMaterialsStudent></ViewAllMaterialsStudent>
            </PrivateRoute>
          ),
        },

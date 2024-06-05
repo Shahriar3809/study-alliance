@@ -15,6 +15,7 @@ const ApprovedSessionCard = ({ item }) => {
     fee,
     status,
   } = item;
+  console.log(item)
   return (
     <div>
       <div className=" bg-gray-100 shadow-lg rounded-lg overflow-hidden mt-6 border border-gray-200">
