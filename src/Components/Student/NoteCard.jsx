@@ -1,12 +1,17 @@
-import { TiDeleteOutline } from "react-icons/ti";
+// import { TiDeleteOutline } from "react-icons/ti";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { MdDeleteForever } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 // import Swal from "sweetalert2";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const NoteCard = ({ item, refetch }) => {
-  const { _id, noteDetails, studentEmail, noteTitle } = item;
+  const { _id, noteDetails, noteTitle } = item;
   const axiosSecure = useAxiosSecure();
+  const {user} = useAuth()
 
   const handleDeleteNote = (_id) => {
 
@@ -41,13 +46,18 @@ const NoteCard = ({ item, refetch }) => {
     <div>
       <div className="w-full  px-4 py-3 bg-[#023551] rounded-md shadow-md ">
         <div className="flex justify-between">
-          <span className="px-3 py-1 text-xs text-blue-800  bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900">
-            {studentEmail}
+          <span className="px-3 py-1 flex items-center text-xs text-blue-800  bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900">
+            {user?.displayName}
           </span>
-          <TiDeleteOutline
-            onClick={() => handleDeleteNote(_id)}
-            className="text-white cursor-pointer text-4xl"
-          />
+          <div className="flex gap-3">
+            <Link to={`/dashboard/user/edit-note/${_id}`}>
+              <FaRegEdit className="text-white cursor-pointer text-3xl" />
+            </Link>
+            <MdDeleteForever
+              onClick={() => handleDeleteNote(_id)}
+              className="text-white cursor-pointer text-4xl"
+            />
+          </div>
         </div>
 
         <div>

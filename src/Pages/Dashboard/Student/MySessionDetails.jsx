@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 
 const MySessionDetails = () => {
    const {id} = useParams();
-   const [ratingValue, setRatingValue] = useState(null);
+   const [ratingValue, setRatingValue] = useState(0);
   //  console.log(id)
 const {user} = useAuth()
 const axiosPublic = useAxiosPublic()
@@ -45,10 +45,17 @@ console.log(sessionDetails)
 const onChange = (value) => {
   console.log(`React Stars Rating value is ${value}`);
   setRatingValue(value)
-const ratingsData = { email: user?.email, sessionId, rating: value };
-  axiosSecure.put(`save-ratings/${sessionId}`, ratingsData)
-  .then(res=> {
-    if(res.data.upsertedCount > 0) {
+};
+
+
+const handleSubmitReview = (event) => {
+event.preventDefault()
+
+const reviewText = event.target.reviewText.value;
+const ratingsData = { email: user?.email, sessionId, rating: ratingValue, reviewText, studentName: user?.displayName };
+
+  axiosSecure.put(`save-ratings/${sessionId}`, ratingsData).then((res) => {
+    if (res.data.upsertedCount > 0) {
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -56,7 +63,7 @@ const ratingsData = { email: user?.email, sessionId, rating: value };
         showConfirmButton: false,
         timer: 1500,
       });
-    } else if(res.data.modifiedCount > 0) {
+    } else if (res.data.modifiedCount > 0) {
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -65,10 +72,8 @@ const ratingsData = { email: user?.email, sessionId, rating: value };
         timer: 1500,
       });
     }
-  })
-};
-
-
+  });
+}
 
 
     return (
@@ -129,17 +134,38 @@ const ratingsData = { email: user?.email, sessionId, rating: value };
                 <br />
               </div>
             </div>
-            <p className="text-xl text-center">Average Review: 4</p>
+            {/* <p className="text-xl text-center">Average Review: 4</p> */}
             <div className="flex items-center p-3 justify-between">
               <span className="text-base font-bold text-green-700 bg-white  rounded-lg px-3 py-2 ">
                 Session Duration:{" "}
                 <span className="text-gray-900">{duration} hours</span>
               </span>
-              <div>
+              <div className="flex items-center gap-5">
                 <p className="text-3xl">
                   Give Us a review:
-                  <ReactStarsRating className="flex gap-1 mt-5"  size={40} onChange={onChange} value={ratingValue} />
+                  <ReactStarsRating
+                    className="flex gap-1 mt-5"
+                    size={40}
+                    onChange={onChange}
+                    value={ratingValue}
+                  />
                 </p>
+                <form onSubmit={handleSubmitReview}>
+                  <label
+                    className="block text-gray-100  font-bold mb-2"
+                    htmlFor="sessionDescription"
+                  >
+                    Give Your Review
+                  </label>
+                  <textarea
+                    id="sessionDescription"
+                    name="reviewText"
+                    required
+                    className="w-full px-3 py-2 border bg-slate-600 rounded-lg focus:outline-none focus:border-[#0369a1]"
+                    rows="4"
+                  ></textarea>
+                  <button type="submit" className="btn w-full">Submit</button>
+                </form>
               </div>
             </div>
           </div>

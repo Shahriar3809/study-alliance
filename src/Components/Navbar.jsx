@@ -83,7 +83,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar">
+    <div className="navbar bg-sky-950 text-white">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -113,12 +113,12 @@ const Navbar = () => {
           <img
             src="https://i.ibb.co/n1kRmfW/404377439-324399690349828-596219030528986936-n.jpg"
             alt=""
-            className="w-full"
+            className="w-full rounded-full"
           />
         </div>
         <Link
           to="/"
-          className="md:text-3xl uppercase text-[#164e63] font-extrabold"
+          className="md:text-3xl uppercase  font-extrabold"
         >
           Study Alliance
         </Link>

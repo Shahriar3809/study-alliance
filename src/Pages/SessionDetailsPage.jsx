@@ -95,7 +95,7 @@ const {
 
 
 
- const { data } = useQuery({
+ const { data=[] } = useQuery({
    queryKey: ["myRating"],
    enabled: !isLoading,
    queryFn: async () => {
@@ -222,6 +222,35 @@ const {
                   </button>
                 )}
               </p>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div>
+              <p className="text-2xl bg-slate-500 px-5 mb-3 text-center font-bold rounded-sm">
+                Here is all review of this session:
+              </p>
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {data.map((item) => (
+                  <p key={item._id}>
+                    <p className="">
+                      Student Name:{" "}
+                      <span className="font-bold text-sky-400 text-xl">
+                        {item?.studentName}
+                      </span>
+                    </p>
+                    <p>
+                      Email: <span className="text-sky-400">{item?.email}</span>
+                    </p>
+                    <p>Review: {item?.reviewText}</p>
+                    <ReactStarsRating
+                      className="flex gap-1 mt-2"
+                      size={20}
+                      value={item?.rating}
+                    />
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         </div>

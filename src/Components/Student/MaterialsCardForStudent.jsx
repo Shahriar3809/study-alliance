@@ -3,20 +3,41 @@ import PropTypes from "prop-types";
 const MaterialsCardForStudent = ({ item }) => {
   const { image, link, materialsTitle } = item;
 
-   const handleClick = () => {
-     // You can add any additional actions here before redirecting
-     // For example, logging analytics events
-     console.log("Link clicked:", link);
-   };
+  const handleClick = () => {
+    // You can add any additional actions here before redirecting
+    // For example, logging analytics events
+    console.log("Link clicked:", link);
+  };
 
+  const handleDownload = (url, filename) => {
+    fetch(url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.style.display = "none";
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      })
+      .catch(() => alert("An error occurred while downloading the image."));
+  };
 
   return (
     <div>
-      <div className="flex flex-col overflow-hidden border-2 bg-[#074a65] rounded-lg  shadow-2xl">
+      <div className="flex flex-col overflow-hidden border-2 bg-[#074a65] rounded-lg shadow-2xl">
         <div className="w-full h-[350px] relative">
           <img src={image} alt="" className="w-full h-full" />
-          <p className="text-white bg-[#082f49] border-white border-y-4 border-l-4 text-xl absolute top-5 right-0 py-3 pl-4 pr-2 rounded-l-full font-bold">
-            Material Banner
+          <p className="top-5 right-5 absolute">
+            <button
+              onClick={() => handleDownload(image, "downloaded-image-study-alliance.jpg")}
+              className="mt-4 px-4 py-2 bg-sky-900 text-white font-bold rounded hover:bg-blue-700"
+            >
+              Download Image
+            </button>
           </p>
         </div>
 
@@ -44,8 +65,9 @@ const MaterialsCardForStudent = ({ item }) => {
     </div>
   );
 };
+
 MaterialsCardForStudent.propTypes = {
-  item: PropTypes.object,
-//   refetch: PropTypes.any,
+  item: PropTypes.object.isRequired,
 };
+
 export default MaterialsCardForStudent;

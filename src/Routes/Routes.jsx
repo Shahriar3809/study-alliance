@@ -28,6 +28,7 @@ import SessionDetailsPage from "../Pages/SessionDetailsPage";
 // import SeeAllMatrialsPage from "../Pages/Dashboard/Student/SeeAllMatrialsPage";
 import ViewAllMaterialsStudent from "../Pages/Dashboard/Student/ViewAllMaterialsStudent";
 import MySessionDetails from "../Pages/Dashboard/Student/MySessionDetails";
+import EditNote from "./EditNote";
 
  const router = createBrowserRouter([
    {
@@ -93,6 +94,14 @@ import MySessionDetails from "../Pages/Dashboard/Student/MySessionDetails";
          element: (
            <PrivateRoute>
              <CreateNote></CreateNote>
+           </PrivateRoute>
+         ),
+       },
+       {
+         path: "/dashboard/user/edit-note/:id",
+         element: (
+           <PrivateRoute>
+             <EditNote></EditNote>
            </PrivateRoute>
          ),
        },

@@ -5,11 +5,14 @@ import Footer from "../Components/Footer";
 
 const Main = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+      <div>
+        <Navbar></Navbar>
+        <div className="max-w-[1640px] mx-auto">
+
+        <Outlet></Outlet>
         </div>
+        <Footer></Footer>
+      </div>
     );
 };
 
