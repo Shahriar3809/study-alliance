@@ -29,6 +29,9 @@ import SessionDetailsPage from "../Pages/SessionDetailsPage";
 import ViewAllMaterialsStudent from "../Pages/Dashboard/Student/ViewAllMaterialsStudent";
 import MySessionDetails from "../Pages/Dashboard/Student/MySessionDetails";
 import EditNote from "./EditNote";
+// import useAuth from "../Hooks/useAuth";
+
+
 
  const router = createBrowserRouter([
    {
@@ -171,6 +174,7 @@ import EditNote from "./EditNote";
              <ViewAllMaterials></ViewAllMaterials>
            </TutorRoute>
          ),
+         
        },
 
        //  Admin

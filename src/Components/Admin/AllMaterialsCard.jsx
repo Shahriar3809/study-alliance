@@ -13,7 +13,7 @@ const AllMaterialsCard = ({ item, refetch }) => {
   };
 
   const axiosSecure = useAxiosSecure();
-  
+
   const handleDeleteMaterial = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -41,6 +41,7 @@ const AllMaterialsCard = ({ item, refetch }) => {
       }
     });
   };
+
 
   return (
     <div>
@@ -71,7 +72,6 @@ const AllMaterialsCard = ({ item, refetch }) => {
             </p>
           </h1>
           <div className="flex justify-between mt-3 item-center">
-           
             <button
               onClick={() => handleDeleteMaterial(_id)}
               className="px-3 rounded-md py-4 bg-yellow-600 text-black font-bold"
@@ -80,6 +80,9 @@ const AllMaterialsCard = ({ item, refetch }) => {
             </button>
           </div>
         </div>
+      </div>
+      <div>
+        
       </div>
     </div>
   );
