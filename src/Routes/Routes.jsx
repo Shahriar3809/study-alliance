@@ -27,6 +27,7 @@ import UpdateMaterialPage from "../Pages/Dashboard/Tutor/UpdateMaterialPage";
 import SessionDetailsPage from "../Pages/SessionDetailsPage";
 // import SeeAllMatrialsPage from "../Pages/Dashboard/Student/SeeAllMatrialsPage";
 import ViewAllMaterialsStudent from "../Pages/Dashboard/Student/ViewAllMaterialsStudent";
+import MySessionDetails from "../Pages/Dashboard/Student/MySessionDetails";
 
  const router = createBrowserRouter([
    {
@@ -51,6 +52,14 @@ import ViewAllMaterialsStudent from "../Pages/Dashboard/Student/ViewAllMaterials
          element: (
            <PrivateRoute>
              <SessionDetailsPage></SessionDetailsPage>
+           </PrivateRoute>
+         ),
+       },
+       {
+         path: "/my-session-details/:id",
+         element: (
+           <PrivateRoute>
+             <MySessionDetails></MySessionDetails>
            </PrivateRoute>
          ),
        },

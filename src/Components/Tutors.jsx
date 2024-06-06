@@ -27,10 +27,13 @@ const Tutors = () => {
 
     return (
       <div>
-        <h2 className="text-5xl mt-20 font-bold text-center text-sky-950">Our Tutors</h2>
+        <h2 className="text-5xl mt-20 font-bold text-center text-sky-950">
+          Our Tutors
+        </h2>
         <hr className="w-1/2 mx-auto mt-5 border-2 border-sky-950" />
-        <p className="text-xl mb-10 font-semibold text-center py-5">Here, You can see our all experienced tutors</p>
-        
+        <p className="text-xl mb-10 font-semibold text-center py-5">
+          Here, You can see our all experienced tutors
+        </p>
 
         <Swiper
           slidesPerView={3}
@@ -47,11 +50,13 @@ const Tutors = () => {
               <div>
                 <div className="w-full relative min-h-[350px] overflow-hidden bg-sky-900 rounded-lg shadow-lg ">
                   <img
-                    src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg"
+                    src={item.profilePhoto}
                     className="object-cover w-full h-56"
                     alt=""
                   />
-                  <p className="absolute bg-black text-white px-4 py-2 rounded-md font-bold uppercase top-5 right-5">Tutor</p>
+                  <p className="absolute bg-black text-white px-4 py-2 rounded-md font-bold uppercase top-5 right-5">
+                    Tutor
+                  </p>
                   <div className="py-5 text-center">
                     <a
                       href="#"

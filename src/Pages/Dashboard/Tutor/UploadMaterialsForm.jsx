@@ -118,7 +118,7 @@ const UploadMaterialsForm = () => {
             </div>
             <div>
               <label className="text-sky-700 dark:text-sky-200">
-                Image Upload (Multiple Allowed)
+                Image Upload
               </label>
               <input
                 type="file"

@@ -4,13 +4,17 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { differenceInCalendarDays } from "date-fns";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
-
+import useAdmin from "../Hooks/useAdmin";
+import useTutor from "../Hooks/useTutor";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import ReactStarsRating from "react-awesome-stars-rating";
 
 const SessionDetailsPage = () => {
 const {id} = useParams();
 const {user} = useAuth()
+const axiosSecure = useAxiosSecure()
 const axiosPublic = useAxiosPublic()
-const { data: sessionDetails = [] } = useQuery({
+const { data: sessionDetails = [], isLoading } = useQuery({
   queryKey: ["sessionDetails"],
   queryFn: async () => {
     const res = await axiosPublic.get(`/session-details/${id}`);
@@ -18,6 +22,8 @@ const { data: sessionDetails = [] } = useQuery({
   },
 });
 
+const {isAdmin} = useAdmin();
+const {isTutor} = useTutor()
 
 const {
   title,
@@ -88,6 +94,25 @@ const {
 
 
 
+
+ const { data } = useQuery({
+   queryKey: ["myRating"],
+   enabled: !isLoading,
+   queryFn: async () => {
+     const { data } = await axiosSecure.get(`/review/${sessionId}`);
+     return data;
+   },
+ });
+
+ console.log(data);
+
+ const sum = data?.reduce((accumulator, currentItem) => {
+   return accumulator + currentItem.rating;
+ }, 0);
+//  console.log();
+
+
+
     return (
       <div className="p-2">
         <div className=" min-h-[550px]  mx-auto">
@@ -146,7 +171,14 @@ const {
                 <br />
               </div>
             </div>
-            <p className="text-xl text-center">Average Review: 4</p>
+            <p className="text-xl flex items-center gap-5 justify-center text-center">
+              <span className="text-3xl mt-5">Average Rating: </span>
+              <ReactStarsRating
+                className="flex gap-1 mt-5"
+                size={40}
+                value={sum / data?.length}
+              />
+            </p>
             <div className="flex items-center p-3 justify-between">
               <span className="text-base font-bold text-green-700 bg-white  rounded-lg px-3 py-2 ">
                 Session Duration:{" "}
@@ -168,14 +200,15 @@ const {
                         </Link>
                       </button>
                     ) : (
-                      <button onClick={handleBookedFreeSession}>
-                        <Link
-                          // to={`/notaka`}
-                          className="px-5 py-4 text-xl mt-5 font-bold text-gray-100 transition-colors hover:bg-green-600 duration-300 transform bg-[#11c811] rounded"
-                          role="button"
-                        >
-                          Book Now
-                        </Link>
+                      <button
+                        className="px-5 py-4 text-xl mt-5 font-bold text-gray-100 transition-colors hover:bg-green-600 duration-300 transform bg-[#11c811] rounded"
+                        role="button"
+                        disabled={
+                          isAdmin === true || isTutor === true ? true : false
+                        }
+                        onClick={handleBookedFreeSession}
+                      >
+                        Book Now
                       </button>
                     )}
                   </>

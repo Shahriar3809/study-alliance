@@ -28,30 +28,37 @@ const HomeSessionCard = ({ item }) => {
           <h1 className="mt-2 text-4xl font-semibold text-gray-800 dark:text-white">
             {title}
           </h1>
-          <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
+          <p className="mt-2 text-lg  text-gray-600 dark:text-gray-300">
             {description}
           </p>
         </div>
-        <p>{endDate}</p>
+        <hr />
+        <p className="text-center p-2 ">
+          Registration Ends in: <span className="underline">{endDate}</span>
+        </p>
+        <hr className="my-2" />
         <div>
           <div className="flex gap-3 items-center justify-center mt-4">
             {difference >= 0 ? (
               <button
                 disabled
-                className="bg-green-500 hover:bg-[#1973a3] font-bold w-1/2 px-4 py-3 rounded-sm"
+                className="bg-green-500  font-bold w-1/2 px-4 py-3 rounded-full"
               >
                 Ongoing
               </button>
             ) : (
               <button
                 disabled
-                className="bg-orange-500 hover:bg-[#1973a3] font-bold w-1/2 px-4 py-3 rounded-sm"
+                className="bg-orange-500 hover:bg-[#30a7e7] font-bold w-1/2 px-4 py-3 rounded-sm"
               >
                 Closed
               </button>
             )}
 
-            <Link to={`/session-details/${_id}`} className="bg-[#075985] text-center hover:bg-[#1973a3] font-bold w-1/2 px-4 py-3 rounded-sm">
+            <Link
+              to={`/session-details/${_id}`}
+              className="bg-[#075985] text-center hover:bg-[#1973a3] font-bold w-1/2 px-4 py-3 rounded-sm"
+            >
               Read More
             </Link>
           </div>

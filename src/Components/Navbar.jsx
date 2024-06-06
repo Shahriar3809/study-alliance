@@ -123,24 +123,44 @@ const Navbar = () => {
           Study Alliance
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center  hidden lg:flex">
         <ul className="flex font-semibold gap-3">{navItem}</ul>
       </div>
       <div className="navbar-end flex gap-3">
         {user ? (
-          <Link
-            onClick={handleLogOut}
-            className=" lg:px-5 lg:py-3 p-2 rounded-[4px] text-white font-bold text-base bg-[#164e63]"
-          >
-            Log Out
-          </Link>
+          <div className="flex gap-5 justify-center items-center">
+            <div className="relative">
+              <img
+                src={user?.photoURL}
+                alt={user?.displayName}
+                className="object-cover cursor-pointer w-12 h-12 rounded-full ring ring-gray-300 dark:ring-gray-600"
+              />
+
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 absolute right-0 ring-1 ring-white bottom-0"></span>
+            </div>
+            <Link
+              onClick={handleLogOut}
+              className=" lg:px-5 lg:py-3 p-2 rounded-[4px] text-white font-bold text-base bg-[#164e63]"
+            >
+              Log Out
+            </Link>
+          </div>
         ) : (
-          <Link
-            to={"/login"}
-            className="lg:px-5 lg:py-3 p-2  rounded-[4px] text-white font-bold text-base bg-[#164e63]"
-          >
-            Login
-          </Link>
+          <div className="flex gap-2">
+            {" "}
+            <Link
+              to={"/login"}
+              className="lg:px-5 lg:py-3 p-2  rounded-full text-white font-bold text-base bg-[#164e63]"
+            >
+              Login
+            </Link>
+            <Link
+              to={"/register"}
+              className="lg:px-5 lg:py-3 p-2  rounded-full text-white font-bold text-base bg-[#0e3240]"
+            >
+              Sign Up
+            </Link>
+          </div>
         )}
       </div>
     </div>
