@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const SessionCard = ({ session, refetch }) => {
-  const { 
+  const {
     _id,
     title,
     tutorName,
@@ -16,6 +16,8 @@ const SessionCard = ({ session, refetch }) => {
     duration,
     fee,
     status,
+    feedback,
+    rejectionReason,
   } = session;
   console.log(fee)
   const axiosSecure = useAxiosSecure()
@@ -131,6 +133,30 @@ const SessionCard = ({ session, refetch }) => {
             Status:
           </span>
           <p className="text-gray-900">{status}</p>
+        </div>
+        <div>
+          {status === "rejected" ? (
+            <>
+              <span className="block text-gray-700 text-sm font-semibold mb-1">
+                Rejection Reason:
+              </span>
+              <p className="text-gray-900">{rejectionReason}</p>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
+        <div>
+          {status === "rejected" ? (
+            <>
+              <span className="block text-gray-700 text-sm font-semibold mb-1">
+                Feedback:
+              </span>
+              <p className="text-gray-900">{feedback}</p>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
         <div>
           {status === "rejected" ? (
