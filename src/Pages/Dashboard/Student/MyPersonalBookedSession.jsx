@@ -17,7 +17,7 @@ const MyPersonalBookedSession = () => {
        },
      });
 
-     console.log(myBookedSessionData)
+    //  console.log(myBookedSessionData)
 
 
     return (

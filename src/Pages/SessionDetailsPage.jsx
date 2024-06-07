@@ -192,7 +192,7 @@ const {
                     {fee > 0 ? (
                       <button onClick={handleBookedPayment}>
                         <Link
-                          // to="/taka"
+                          to={`/book-session/payment/${sessionId}`}
                           className="px-5 py-4 text-xl mt-5 font-bold text-gray-100 transition-colors duration-300 transform bg-[#11c811] rounded"
                           role="button"
                         >

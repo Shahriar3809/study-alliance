@@ -30,6 +30,7 @@ import ViewAllMaterialsStudent from "../Pages/Dashboard/Student/ViewAllMaterials
 import MySessionDetails from "../Pages/Dashboard/Student/MySessionDetails";
 import EditNote from "./EditNote";
 import RejectedSessions from "../Pages/Dashboard/Admin/RejectedSessions";
+import Payment from "../Pages/Dashboard/Student/Payment";
 // import useAuth from "../Hooks/useAuth";
 
 
@@ -73,6 +74,14 @@ import RejectedSessions from "../Pages/Dashboard/Admin/RejectedSessions";
          element: (
            <PrivateRoute>
              <ViewAllMaterialsStudent></ViewAllMaterialsStudent>
+           </PrivateRoute>
+         ),
+       },
+       {
+         path: "/book-session/payment/:sessionId",
+         element: (
+           <PrivateRoute>
+             <Payment></Payment>
            </PrivateRoute>
          ),
        },
