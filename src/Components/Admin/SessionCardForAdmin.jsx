@@ -30,16 +30,16 @@ const SessionCardForAdmin = ({ item, refetch }) => {
       confirmButtonText: "Approve",
       preConfirm: () => {
         const fees = Swal.getPopup().querySelector("#fee").value;
-        
+
         if (!fees) {
           Swal.showValidationMessage("Fee is required");
         }
-        return {  fees: fees };
+        return { fees: fees };
       },
     }).then((result) => {
       if (result.isConfirmed) {
         const fee = parseInt(result.value.fees);
-        console.log(fee)
+        console.log(fee);
         // Server
         axiosSecure
           .patch(`/all-session/admin/${_id}`, { status: "approved", fee: fee })
@@ -69,28 +69,44 @@ const SessionCardForAdmin = ({ item, refetch }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, Reject it!",
+      html:
+        
+        '<textarea id="rejectionReason" class="swal2-textarea" placeholder="Enter rejection reason"></textarea>' +
+        '<br/>' + 
+       
+        '<textarea id="feedback" class="swal2-textarea" placeholder="Enter feedback"></textarea>',
+      preConfirm: () => {
+        const rejectionReason =
+          Swal.getPopup().querySelector("#rejectionReason").value;
+        const feedback = Swal.getPopup().querySelector("#feedback").value;
+
+        if (!rejectionReason || !feedback) {
+          Swal.showValidationMessage("Both fields are required");
+        }
+        return { rejectionReason, feedback };
+      },
     }).then((result) => {
       if (result.isConfirmed) {
+        const { rejectionReason, feedback } = result.value;
+
         axiosSecure
-          .patch(`/all-session/admin/${_id}`, { status: "rejected" })
+          .patch(`/all-session/admin/${_id}`, {
+            status: "rejected",
+            rejectionReason,
+            feedback,
+          })
           .then((res) => {
-            console.log(res.data);
             if (res.data.modifiedCount > 0) {
               refetch();
               Swal.fire({
-                position: "top-end",
+                title: "Rejected!",
+                text: "The session has been rejected.",
                 icon: "success",
-                title: "Session Approved",
-                showConfirmButton: false,
-                timer: 1500,
               });
             }
           });
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
-        });
+
+        
       }
     });
   };
@@ -106,7 +122,6 @@ const SessionCardForAdmin = ({ item, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-
         axiosSecure.delete(`/all-session/admin/${_id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
@@ -119,9 +134,6 @@ const SessionCardForAdmin = ({ item, refetch }) => {
             });
           }
         });
-
-
-        
       }
     });
   };
@@ -217,8 +229,8 @@ const SessionCardForAdmin = ({ item, refetch }) => {
 };
 
 SessionCardForAdmin.propTypes = {
-  item: PropTypes.object,
-  refetch: PropTypes.any,
+  item: PropTypes.object.isRequired,
+  refetch: PropTypes.func.isRequired,
 };
 
 export default SessionCardForAdmin;

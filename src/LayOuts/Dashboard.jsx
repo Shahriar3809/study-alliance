@@ -94,6 +94,12 @@ const Dashboard = () => {
                     All Materials
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/dashboard/all-rejected-session">
+                    <FaListAlt />
+                    Rejected Sessions
+                  </NavLink>
+                </li>
               </>
             )}
 

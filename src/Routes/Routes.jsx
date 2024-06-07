@@ -29,6 +29,7 @@ import SessionDetailsPage from "../Pages/SessionDetailsPage";
 import ViewAllMaterialsStudent from "../Pages/Dashboard/Student/ViewAllMaterialsStudent";
 import MySessionDetails from "../Pages/Dashboard/Student/MySessionDetails";
 import EditNote from "./EditNote";
+import RejectedSessions from "../Pages/Dashboard/Admin/RejectedSessions";
 // import useAuth from "../Hooks/useAuth";
 
 
@@ -174,7 +175,6 @@ import EditNote from "./EditNote";
              <ViewAllMaterials></ViewAllMaterials>
            </TutorRoute>
          ),
-         
        },
 
        //  Admin
@@ -199,6 +199,14 @@ import EditNote from "./EditNote";
          element: (
            <AdminRoute>
              <AllMaterials></AllMaterials>
+           </AdminRoute>
+         ),
+       },
+       {
+         path: "all-rejected-session",
+         element: (
+           <AdminRoute>
+             <RejectedSessions></RejectedSessions>
            </AdminRoute>
          ),
        },
