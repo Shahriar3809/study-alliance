@@ -1,14 +1,14 @@
 import axios from "axios";
-// import useAuth from "./useAuth";
-// import { useNavigate } from "react-router-dom";
+import useAuth from "./useAuth";
+import { useNavigate } from "react-router-dom";
 // import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
   baseURL: "http://localhost:3000",
 });
 const useAxiosSecure = () => {
-  // const { logOut } = useAuth();
-  // const navigate = useNavigate()
+  const { logOut } = useAuth();
+  const navigate = useNavigate()
   // Req
   axiosSecure.interceptors.request.use(
     function (config) {
@@ -30,8 +30,8 @@ const useAxiosSecure = () => {
     async (error) => {
       // console.log("Status Error", error)
       if (error.response.status === 401 || error.response.status === 403) {
-        // await logOut();
-        // navigate('/login')
+        await logOut();
+        navigate('/login')
       }
       return Promise.reject(error);
     }

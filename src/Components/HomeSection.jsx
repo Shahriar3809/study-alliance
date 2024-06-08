@@ -1,44 +1,16 @@
-// import { useQuery } from "@tanstack/react-query";
-// import HomeSessionCard from "./HomeSessionCard";
-// import useAxiosSecure from "../Hooks/useAxiosSecure";
-
-// const HomeSection = () => {
-//     const axiosSecure = useAxiosSecure()
-//     const { data: approvedData = [] } = useQuery({
-//       queryKey: ["approvedSessionForHome"],
-//       queryFn: async () => {
-//         const { data } = await axiosSecure.get("/all-approved-session");
-//         return data;
-//       },
-//     });
-//     console.log(approvedData)
-//     return (
-//         <div>
-//             Home Section
-//             <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
-//                 {
-//                     approvedData.map(item=> <HomeSessionCard key={item._id} item={item}></HomeSessionCard>)
-//                 }
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default HomeSection;
-
-
-
-
-
 
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import HomeSessionCard from "./HomeSessionCard";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+// import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import useAuth from "../Hooks/useAuth";
 
 const HomeSection = () => {
-  const axiosSecure = useAxiosSecure();
+  // const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic()
   const [showAll, setShowAll] = useState(false);
+  const {loading} = useAuth()
 
   const {
     data: approvedData = [],
@@ -46,8 +18,9 @@ const HomeSection = () => {
     refetch,
   } = useQuery({
     queryKey: ["approvedSessionForHome", showAll],
+    enabled: !loading,
     queryFn: async () => {
-      const { data } = await axiosSecure.get(
+      const { data } = await axiosPublic.get(
         `/all-approved-session?limit=${showAll ? 0 : 7}`
       );
       return data;

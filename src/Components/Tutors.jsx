@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 // import TutorDisplayCard from "./TutorDisplayCard";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -10,15 +10,18 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import useAuth from "../Hooks/useAuth";
 
 
 const Tutors = () => {
-    const axiosSecure = useAxiosSecure()
+    const axiosPublic = useAxiosPublic()
+    const {loading} = useAuth()
   
-  const { data=[] } = useQuery({
+  const { data = [] } = useQuery({
     queryKey: ["allTutors"],
+    enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure.get("/tutors");
+      const res = await axiosPublic.get("/tutors");
       return res.data;
     },
   });
