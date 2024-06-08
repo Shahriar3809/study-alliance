@@ -2,6 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 import auth from "../Firebase/firebase.config";
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 
 export const AuthContext = createContext(null);
@@ -12,6 +13,7 @@ const AuthProviders = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
    const githubProvider = new GithubAuthProvider();
+   const axiosPublic = useAxiosPublic()
  
   const createUser = (email, password) => {
     setLoading(true);
@@ -44,25 +46,25 @@ const AuthProviders = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false)
-    //   if (currentUser) {
-    //     // get token and store
-    //     // const userInfo = { email: currentUser.email };
-    //     // axiosPublic.post("/jwt", userInfo).then((res) => {
-    //     //   if (res.data.token) {
-    //     //     localStorage.setItem("access-token", res.data.token);
-    //     //     setLoading(false);
-    //     //   }
-    //     // });
-    //   } else {
-    //     // remove Token
-    //     // localStorage.removeItem("access-token");
-    //     // setLoading(false);
-    //   }
+      if (currentUser) {
+        // get token and store
+        const userInfo = { email: currentUser.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+            setLoading(false);
+          }
+        });
+      } else {
+        // remove Token
+        localStorage.removeItem("access-token");
+        setLoading(false);
+      }
     });
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [axiosPublic]);
 
   const authInfo = {
     user,

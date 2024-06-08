@@ -35,7 +35,7 @@ const Payment = () => {
   // console.log(sessionId);
   return (
     <div>
-      <div>Payment Page</div>
+      <div className="text-3xl">Please Pay</div>
       <Elements stripe={stripePromise}>
         <CheckOutForm id={id}></CheckOutForm>
       </Elements>

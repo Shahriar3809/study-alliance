@@ -14,6 +14,7 @@ const AllUsers = () => {
       const [, name] = queryKey;
       const res = await axiosSecure.get("/users", {
         params: { name },
+       
       });
       return res.data;
     },

@@ -88,10 +88,6 @@ const {
 
 
 
- const handleBookedPayment = () => {
-  console.log("Taka de madari", );
- }
-
 
 
 
@@ -190,15 +186,21 @@ const {
                 {difference >= 0 ? (
                   <>
                     {fee > 0 ? (
-                      <button onClick={handleBookedPayment}>
-                        <Link
-                          to={`/book-session/payment/${sessionId}`}
-                          className="px-5 py-4 text-xl mt-5 font-bold text-gray-100 transition-colors duration-300 transform bg-[#11c811] rounded"
-                          role="button"
-                        >
-                          Book Now
-                        </Link>
-                      </button>
+                      <Link
+                        to={
+                          isAdmin || isTutor
+                            ? null
+                            : `/book-session/payment/${sessionId}`
+                        }
+                        className={`px-5 py-4 text-xl mt-5 font-bold text-gray-100 transition-colors duration-300 transform rounded ${
+                          isAdmin || isTutor
+                            ? "bg-gray-400 cursor-not-allowed"
+                            : "bg-[#11c811] hover:bg-[#0f9d0f] active:bg-[#0d7e0d]"
+                        }`}
+                        role="button"
+                      >
+                        Book Now
+                      </Link>
                     ) : (
                       <button
                         className="px-5 py-4 text-xl mt-5 font-bold text-gray-100 transition-colors hover:bg-green-600 duration-300 transform bg-[#11c811] rounded"

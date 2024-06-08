@@ -24,7 +24,7 @@ const HomeSessionCard = ({ item }) => {
           </span>
         </div>
 
-        <div className="flex-grow">
+        <div className="flex-grow mb-3">
           <h1 className="mt-2 text-4xl font-semibold text-gray-800 dark:text-white">
             {title}
           </h1>
@@ -38,18 +38,18 @@ const HomeSessionCard = ({ item }) => {
         </p>
         <hr className="my-2" />
         <div>
-          <div className="flex gap-3 items-center justify-center mt-4">
+          <div className="flex gap-3 items-center justify-between mt-4">
             {difference >= 0 ? (
               <button
                 disabled
-                className="bg-green-500  font-bold w-1/2 px-4 py-3 rounded-full"
+                className="bg-gray-700 border-2 font-bold  px-4 py-3 rounded-lg"
               >
                 Ongoing
               </button>
             ) : (
               <button
                 disabled
-                className="bg-orange-500 hover:bg-[#30a7e7] font-bold w-1/2 px-4 py-3 rounded-sm"
+                className="bg-orange-600 border-2 font-bold  px-4 py-3 rounded-lg"
               >
                 Closed
               </button>
