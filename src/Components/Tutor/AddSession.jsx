@@ -51,14 +51,14 @@ const AddSession = () => {
   return (
     <div>
       <div className="mx-auto bg-gray-200 shadow-lg rounded-lg overflow-hidden mt-6">
-        <div className="px-6 py-4">
+        <div className="px-1 md:px-6 py-4">
           <h2 className="md:text-4xl text-center pb-3 uppercase text-[#0c4a6e] font-bold mb-6 pt-5">
             Create Study Session
           </h2>
           <form onSubmit={handleCreateSession}>
-            <div className="flex gap-8">
+            <div className="flex flex-col md:flex-row gap-8">
               {/* 1 */}
-              <div className="w-1/2">
+              <div className="md:w-1/2">
                 <div className="mb-4">
                   <label
                     className="block text-gray-700 text-sm font-bold mb-2"
@@ -143,7 +143,7 @@ const AddSession = () => {
               </div>
 
               {/* 2 */}
-              <div className="w-1/2">
+              <div className="md:w-1/2">
                 <div className="mb-4">
                   <label
                     className="block text-gray-700 text-sm font-bold mb-2"

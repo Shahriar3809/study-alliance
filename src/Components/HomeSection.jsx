@@ -35,8 +35,8 @@ const HomeSection = () => {
 
 
   return (
-    <div>
-      <h2 className="text-5xl font-bold text-center py-5 mt-10 text-[#132e3d]">
+    <div className="p-3">
+      <h2 className=" text-2xl md:text-5xl font-bold text-center py-5 mt-10 text-[#132e3d]">
         See all Our <span className=" underline text-[#337193]">Session</span> bellow
       </h2>
       <p className="text-center font-semibold mb-8">

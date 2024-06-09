@@ -64,72 +64,72 @@ const SessionCard = ({ session, refetch }) => {
       <div className="bg-[#0e516c] text-white px-6 py-4">
         <h2 className="text-xl font-bold">{title}</h2>
       </div>
-      <div className="px-6 py-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className=" px-1 md:px-6 py-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Tutor Name:
           </span>
           <p className="text-gray-900">{tutorName}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Tutor Email:
           </span>
           <p className="text-gray-900">{tutorEmail}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Session Description:
           </span>
           <p className="text-gray-900">{description}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Registration Start Date:
           </span>
           <p className="text-gray-900">{startDate}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Registration End Date:
           </span>
           <p className="text-gray-900">{endDate}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Class Start Date:
           </span>
           <p className="text-gray-900">{classStartDate}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Class End Date:
           </span>
           <p className="text-gray-900">{classEndDate}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Session Duration:
           </span>
           <p className="text-gray-900">{duration}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Registration Fee:
           </span>
           <p className="text-gray-900">₹ {fee}</p>
         </div>
 
         <div>
-          <span className="block text-gray-700 text-sm font-semibold mb-1">
+          <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
             Status:
           </span>
           <p className="text-gray-900">{status}</p>
@@ -137,7 +137,7 @@ const SessionCard = ({ session, refetch }) => {
         <div>
           {status === "rejected" ? (
             <>
-              <span className="block text-gray-700 text-sm font-semibold mb-1">
+              <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
                 Rejection Reason:
               </span>
               <p className="text-gray-900">{rejectionReason}</p>
@@ -149,7 +149,7 @@ const SessionCard = ({ session, refetch }) => {
         <div>
           {status === "rejected" ? (
             <>
-              <span className="block text-gray-700 text-sm font-semibold mb-1">
+              <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
                 Feedback:
               </span>
               <p className="text-gray-900">{feedback}</p>

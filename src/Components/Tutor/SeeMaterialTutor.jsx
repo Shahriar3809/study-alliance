@@ -47,7 +47,7 @@ const SeeMaterialTutor = ({ item, refetch }) => {
       <div className="flex h-[500px] flex-col overflow-hidden border-2 bg-[#083344] rounded-lg  shadow-2xl">
         <div className="w-full h-[250px] relative">
           <img src={image} alt="" className="w-full h-full" />
-          <p className="text-white bg-[#082f49] border-white border-y-4 border-l-4 text-xl absolute top-5 right-0 py-3 pl-4 pr-2 rounded-l-full font-bold">
+          <p className="text-white bg-[#082f49]  text-sm absolute top-5 right-0 py-3 pl-4 pr-2 font-bold">
             Material Banner
           </p>
         </div>

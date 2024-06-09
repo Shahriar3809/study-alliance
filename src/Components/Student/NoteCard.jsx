@@ -51,11 +51,11 @@ const NoteCard = ({ item, refetch }) => {
           </span>
           <div className="flex gap-3">
             <Link to={`/dashboard/user/edit-note/${_id}`}>
-              <FaRegEdit className="text-white cursor-pointer text-3xl" />
+              <FaRegEdit className="text-white cursor-pointer text-3xl md:text-4xl" />
             </Link>
             <MdDeleteForever
               onClick={() => handleDeleteNote(_id)}
-              className="text-white cursor-pointer text-4xl"
+              className="text-white cursor-pointer text-3xl md:text-4xl"
             />
           </div>
         </div>

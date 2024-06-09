@@ -25,7 +25,7 @@ const HomeSessionCard = ({ item }) => {
         </div>
 
         <div className="flex-grow mb-3">
-          <h1 className="mt-2 text-4xl font-semibold text-gray-800 dark:text-white">
+          <h1 className="mt-2 text-3xl md:text-4xl font-semibold text-gray-800 dark:text-white">
             {title}
           </h1>
           <p className="mt-2 text-lg  text-gray-600 dark:text-gray-300">

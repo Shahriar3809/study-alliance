@@ -3,19 +3,27 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import "../App.css";
 import useTutor from "../Hooks/useTutor";
-
+import { IoMdClose } from "react-icons/io";
 import useAuth from "../Hooks/useAuth";
-
+import { useState } from "react";
+import { FaBars } from "react-icons/fa";
 
 const Dashboard = () => {
   const {user} = useAuth()
     const {isAdmin} = useAdmin();
     const {isTutor} = useTutor();
-   
+   const [isOpen, setIsOpen] = useState(true)
     return (
-      <div className="flex">
-        <div className="w-64 text-white min-h-screen bg-[#083344]">
-          <ul className="menu dashboard space-y-1 text-base">
+      <div className=" flex ">
+        <div className=" text-white min-h-screen p-3 bg-[#083344]">
+          <div onClick={() => setIsOpen(!isOpen)} className="text-2xl md:hidden bg-sky-800 w-12 p-3 rounded-full text-right">
+            {isOpen ? <IoMdClose /> : <FaBars />}
+          </div>
+          <ul
+            className={`menu dashboard space-y-1 text-base  ${
+              isOpen || "hidden md:block"
+            }`}
+          >
             {user && !isAdmin && !isTutor && (
               <>
                 <li>
@@ -114,7 +122,7 @@ const Dashboard = () => {
           </ul>
         </div>
 
-        <div className="flex-1 p-8">
+        <div className="flex-1  p-2 lg:p-8">
           <Outlet></Outlet>
         </div>
       </div>

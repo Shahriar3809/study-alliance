@@ -91,7 +91,7 @@ const handleChangeRole = (_id) => {
         </form>
       </div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table ">
           <thead className="bg-[#083344] text-white">
             <tr className="text-base">
               <th>Name</th>

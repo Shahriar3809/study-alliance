@@ -156,7 +156,7 @@ const UploadMaterialsForm = () => {
           <div className="flex justify-end mt-6">
             <button
               type="submit"
-              className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-sky-700 rounded-md hover:bg-sky-600 focus:outline-none focus:bg-sky-600"
+              className="px-8 py-2.5 leading-5 w-full text-white transition-colors duration-300 transform bg-sky-600 rounded-md hover:bg-sky-900 focus:outline-none focus:bg-sky-900"
             >
               Upload
             </button>

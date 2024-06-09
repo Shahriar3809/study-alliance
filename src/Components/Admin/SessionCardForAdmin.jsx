@@ -140,7 +140,7 @@ const SessionCardForAdmin = ({ item, refetch }) => {
 
   return (
     <div>
-      <div className=" text-white px-8 py-4 rounded-lg shadow-lg bg-sky-900">
+      <div className=" text-white px-3 md:px-8 py-4 rounded-lg shadow-lg bg-sky-900">
         <div className="flex items-center justify-between">
           <div className="">
             <p className="text-base font-bold text-gray-300 ">{tutorName}</p>
@@ -163,10 +163,6 @@ const SessionCardForAdmin = ({ item, refetch }) => {
             {title}
           </a>
           <p className="mt-2 text-gray-600 text-justify dark:text-gray-300">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
-            expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos
-            enim reprehenderit nisi, accusamus delectus nihil quis facere in
-            modi ratione libero!
             {description}
           </p>
         </div>
@@ -176,15 +172,21 @@ const SessionCardForAdmin = ({ item, refetch }) => {
             <p>Reg Start: {startDate}</p>
             <p>Class Start{classStartDate}</p>
           </div>
+          <br />
           <div className="flex justify-between">
             <p>Reg End{endDate}</p>
             <p>Class End{classEndDate}</p>
           </div>
         </div>
         <hr />
-        <div>
-          <p>Duration: {duration}</p>
-          <p>Fee: {fee}</p>
+        <br />
+        <div className="flex justify-between">
+          <p className="p-1 bg-sky-700 my-1 rounded-lg w-36 text-center">
+            Duration: {duration}
+          </p>
+          <p className="p-1 bg-sky-700 my-1 rounded-lg w-20 text-center">
+            Fee: {fee}
+          </p>
         </div>
         {status === "pending" ? (
           <div className="flex items-center justify-between mt-4">

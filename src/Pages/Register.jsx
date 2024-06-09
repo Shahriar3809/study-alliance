@@ -129,13 +129,13 @@ const axiosPublic = useAxiosPublic();
  
 console.log(useAuth())
   return (
-    <>
+    <div className="bg-sky-950 p-5  md:p-20">
       {/* <Helmet>
         <title>Bistro Boss | Register</title>
       </Helmet> */}
-      <div className="bg-gray-100 p-3 w-5/6 md:h-10/12 mx-auto">
-        <h1 className="text-5xl text-center pt-10 text-black font-bold">
-          Register now!
+      <div className="bg-sky-800 p-3 rounded-lg md:h-10/12 mx-auto">
+        <h1 className="text-5xl text-center pt-10 text-white font-bold">
+          Please Register now!
         </h1>
         <div className=" ">
           <div className="">
@@ -143,19 +143,19 @@ console.log(useAuth())
               <form onSubmit={handleSubmit(onSubmit)} className="">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-black">Name</span>
+                    <span className="label-text text-xl text-white">Enter Your Full Name</span>
                   </label>
                   <input
                     {...register("name", { required: true })}
                     type="text"
                     placeholder="Name"
-                    className="p-5 text-gray-400 rounded-md"
+                    className="p-5 text-xl rounded-md bg-sky-950 text-sky-50"
                   />
                   {errors.name && (
                     <span className="text-red-500">Name is required.</span>
                   )}
-
-                  <label className="text-sky-700 dark:text-sky-200">
+                  <br />
+                  <label className="label-text text-xl text-white">
                     Upload Profile Image
                   </label>
                   <input
@@ -163,21 +163,21 @@ console.log(useAuth())
                     {...register("image", { required: true })}
                     name="image"
                     required
-                    className="file-input block w-full px-4 py-2 mt-2 text-sky-700 bg-white border border-sky-200 rounded-md dark:bg-sky-800 dark:text-gray-100 dark:border-sky-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                    className="file-input block w-full px-5 py-2 mt-2  bg-sky-950 text-sky-50 border border-white rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 "
                   />
                   {errors.image && (
                     <span className="text-red-500">Photo is required.</span>
                   )}
-
+                  <br />
                   <label className="label">
-                    <span className="label-text text-black">
+                    <span className="label-text text-xl text-white">
                       Select Your Role Here
                     </span>
                   </label>
                   <select
                     defaultValue={"Default"}
                     {...register("role", { required: true })}
-                    className="select select-bordered text-black w-full "
+                    className="select select-bordered bg-sky-950 text-sky-50 text-xl  "
                   >
                     <option disabled value="Default">
                       Select a Category?
@@ -189,8 +189,9 @@ console.log(useAuth())
                   {errors.role && (
                     <span className="text-red-500">Category is Required</span>
                   )}
+                  <br />
                   <label className="label">
-                    <span className="label-text text-black">Email</span>
+                    <span className="label-text text-xl text-white">Enter Your Email</span>
                   </label>
                   <input
                     type="email"
@@ -198,15 +199,18 @@ console.log(useAuth())
                       required: true,
                     })}
                     placeholder="Email"
-                    className=" p-5 text-gray-500 rounded-md"
+                    className="p-5 text-xl rounded-md bg-sky-950 text-sky-50"
                   />
                   {errors.email && (
                     <span className="text-red-500">Email is required.</span>
                   )}
+                  <br />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-black">Password</span>
+                    <span className="label-text text-xl text-white">
+                     Enter a Password
+                    </span>
                   </label>
                   <div className="relative">
                     <input
@@ -222,13 +226,13 @@ console.log(useAuth())
                       type={show ? "password" : "text"}
                       name="password"
                       placeholder="password"
-                      className="input text-gray-500 k input-bordered w-full"
+                      className=" input-bordered w-full p-5 text-xl rounded-md bg-sky-950 text-sky-50"
                     />
                     <div
                       onClick={() => {
                         setShow(!show);
                       }}
-                      className="absolute text-black right-3 top-4 text-xl"
+                      className="absolute text-white right-3 top-6 text-xl"
                     >
                       {show ? <FaRegEye /> : <FaRegEyeSlash />}
                     </div>
@@ -241,13 +245,13 @@ console.log(useAuth())
                   )}
 
                   <label className="label">
-                    <a href="#" className="label-text-alt  link link-hover">
+                    <a href="#" className="llabel-text text-xl text-white">
                       Forgot password?
                     </a>
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn  text-white bg-gray-700 font-bold text-xl">
+                  <button className="rounded-sm border-2 border-white  py-5 bg-sky-950 text-sky-50 font-bold text-xl">
                     Register
                   </button>
                 </div>
@@ -255,10 +259,10 @@ console.log(useAuth())
 
               <div className=" w-full md:mx-0 text-black mt-10 md:gap-0 justify-around mb-5"></div>
 
-              <div className="mt-6">
-                <Link className="text-black text-xl " to="/login">
+              <div className="mt-6 text-center">
+                <Link className="text-white text-2xl" to="/login">
                   Already have an account?{" "}
-                  <span className="text-blue-500 font-bold underline">
+                  <span className="text-blue-400 text-3xl font-bold underline">
                     Login
                   </span>{" "}
                   Here.
@@ -268,7 +272,7 @@ console.log(useAuth())
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

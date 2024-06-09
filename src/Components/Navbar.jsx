@@ -104,12 +104,12 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-sky-950 rounded-box w-52"
           >
             {navItem}
           </ul>
         </div>
-        <div className="md:w-[35px] mx-2">
+        <div className="w-[35px] md:w-[35px] mx-2">
           <img
             src="https://i.ibb.co/n1kRmfW/404377439-324399690349828-596219030528986936-n.jpg"
             alt=""
@@ -133,7 +133,7 @@ const Navbar = () => {
               <img
                 src={user?.photoURL}
                 alt={user?.displayName}
-                className="object-cover cursor-pointer w-12 h-12 rounded-full ring ring-gray-300 dark:ring-gray-600"
+                className="object-cover cursor-pointer w-10 h-10 md:w-12 md:h-12 rounded-full ring ring-gray-300 dark:ring-gray-600"
               />
 
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 absolute right-0 ring-1 ring-white bottom-0"></span>

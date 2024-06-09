@@ -45,7 +45,8 @@ const MaterialsCardForStudent = ({ item }) => {
           <h1 className="text-xl font-bold text-gray-800 dark:text-white">
             {materialsTitle}
           </h1>
-          <br />
+    
+          <hr />
           <h1 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">
             <p className="">
               See the link to see Materials: <br />

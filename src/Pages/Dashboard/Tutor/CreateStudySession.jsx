@@ -4,7 +4,7 @@ import AddSession from "../../../Components/Tutor/AddSession";
 const CreateStudySession = () => {
    
     return (
-        <div>
+        <div className="">
             <AddSession></AddSession>
         </div>
     );

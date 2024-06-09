@@ -110,20 +110,20 @@ const {
 
 
     return (
-      <div className="p-2">
+      <div className="">
         <div className=" min-h-[550px]  mx-auto">
-          <div className=" text-white  space-y-5 p-20 bg-[#083344] rounded-lg shadow-md ">
+          <div className=" text-white  space-y-5 p-5 md:p-20 bg-[#083344] md:rounded-lg shadow-md ">
             <div className="mt-2 space-y-4">
-              <p className="text-6xl font-bold">{title}</p>
-              <p className="text-xl text-gray-200">{description}</p>
+              <p className=" text-3xl md:text-6xl font-bold">{title}</p>
+              <p className="md:text-xl text-gray-200">{description}</p>
             </div>
-            <div className="flex justify-between text-gray-800 py-3 text-xl">
+            <div className="flex flex-col gap-3 md:flex-row md:justify-between text-gray-800 py-3 text-xl">
               <div className="space-y-2 font-semibold">
                 <p className="py-2 px-5 rounded-md bg-[#a99ad0]">
                   {" "}
                   Reg Start date: {startDate}
                 </p>
-                <p className="py-2 px-5 rounded-md  bg-[#edce1b]">
+                <p className="py-2 px-5 rounded-md  bg-[#cacaca]">
                   {" "}
                   Reg End date: {endDate}
                 </p>
@@ -133,7 +133,7 @@ const {
                 Fee: $ {fee}
               </p>
               <div className="space-y-2 font-semibold text-white">
-                <p className="py-2 px-5 rounded-md   bg-[#129726]">
+                <p className="py-2 px-5 rounded-md   bg-[#768678]">
                   {" "}
                   Class Start date: {classStartDate}
                 </p>
@@ -147,17 +147,17 @@ const {
             <div className=" mt-5">
               <div className="">
                 <h2 className="text-center text-2xl bg-blue-800 font-bold rounded-t-2xl py-2">
-                  Tutor:{" "}
+                  Tutor:
                 </h2>
                 <div className="flex justify-between py-5">
                   <p className="text-xl">
-                    Tutor Name:
+                    Tutor Name: <br />
                     <span className="text-gray-300 font-bold mx-2">
-                      {tutorName}
+                    {tutorName}
                     </span>
                   </p>
                   <p className="text-xl">
-                    Tutor Email:{" "}
+                    Tutor Email:{" "} <br />
                     <span className="text-gray-300 font-bold mx-2">
                       {tutorEmail}
                     </span>
@@ -167,22 +167,25 @@ const {
                 <br />
               </div>
             </div>
-            <p className="text-xl flex items-center gap-5 justify-center text-center">
+            <p className="text-xl flex flex-col md:flex-row items-center gap-5 justify-center text-center">
               <span className="text-3xl mt-5">Average Rating: </span>
+              <br />
               <ReactStarsRating
                 className="flex gap-1 mt-5"
                 size={40}
                 value={sum / data?.length}
               />
             </p>
-            <div className="flex items-center p-3 justify-between">
+            <div className="flex flex-col md:flex-row items-center p-3 justify-between">
               <span className="text-base font-bold text-green-700 bg-white  rounded-lg px-3 py-2 ">
                 Session Duration:{" "}
                 <span className="text-gray-900">{duration} hours</span>
               </span>
+              <br />
+              <br />
               <p>
                 {" "}
-                <span className="mr-3 ">Want to Book this session?</span>
+                <span className="mr-3 ">Want to Book?</span>
                 {difference >= 0 ? (
                   <>
                     {fee > 0 ? (
@@ -232,7 +235,7 @@ const {
               <p className="text-2xl bg-slate-500 px-5 mb-3 text-center font-bold rounded-sm">
                 Here is all review of this session:
               </p>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+              <div className="grid  grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {data.map((item) => (
                   <p key={item._id}>
                     <p className="">
