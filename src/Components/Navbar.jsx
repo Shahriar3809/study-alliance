@@ -156,7 +156,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/register"}
-              className="lg:px-5 lg:py-3 p-2  rounded-full text-white font-bold text-base bg-[#0e3240]"
+              className="lg:px-5 lg:py-3 p-2  rounded-full text-white font-bold text-base bg-[#185066]"
             >
               Sign Up
             </Link>
