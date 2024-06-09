@@ -108,12 +108,12 @@ const Login = () => {
  };
 
   return (
-    <div className="bg-sky-950 p-5  md:p-20">
+    <div className="bg-sky-950 p-3  md:px-96">
       {/* <Helmet>
         <title>Bistro Boss | Login</title>
       </Helmet> */}
       <div className="bg-sky-800 p-3 rounded-lg md:h-10/12 mx-auto">
-        <h1 className="text-3xl md:text-6xl text-center pt-10 text-white font-bold">
+        <h1 className="text-3xl md:text-5xl text-center pt-5 text-white font-bold">
           Please Login now!
         </h1>
         <p className="text-xl font-bold text-center text-white">
@@ -122,15 +122,15 @@ const Login = () => {
         </p>
         <div className=" flex gap-5  md:mx-0  mt-10  items-center justify-center mb-5">
           <button onClick={handleGoogleLogin} className="">
-            <FcGoogle className="text-4xl md:text-6xl rounded-full bg-white md:p-2" />
+            <FcGoogle className="text-4xl md:text-5xl rounded-full bg-white md:p-2" />
           </button>
           <button onClick={handleGithubLogin} className="">
-            <FaGithub className=" text-4xl md:text-6xl rounded-full bg-white md:p-2" />
+            <FaGithub className=" text-4xl md:text-5xl rounded-full bg-white md:p-2" />
           </button>
         </div>
         {/* <hr /> */}
         <p className="text-2xl text-center font-bold text-white ">Or</p>
-        <br />
+        {/* <br /> */}
         <hr className="w-1/2 mx-auto" />
 
         <div className="">

@@ -129,21 +129,23 @@ const axiosPublic = useAxiosPublic();
  
 console.log(useAuth())
   return (
-    <div className="bg-sky-950 p-5  md:p-20">
+    <div className="bg-sky-950 p-5  md:px-96">
       {/* <Helmet>
         <title>Bistro Boss | Register</title>
       </Helmet> */}
       <div className="bg-sky-800 p-3 rounded-lg md:h-10/12 mx-auto">
-        <h1 className="text-5xl text-center pt-10 text-white font-bold">
+        <h1 className="text-4xl text-center pt-10 text-white font-bold">
           Please Register now!
         </h1>
         <div className=" ">
           <div className="">
-            <div className="  md:p-10 text-white ">
+            <div className="  md:p-6 text-white ">
               <form onSubmit={handleSubmit(onSubmit)} className="">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-xl text-white">Enter Your Full Name</span>
+                    <span className="label-text text-xl text-white">
+                      Enter Your Full Name
+                    </span>
                   </label>
                   <input
                     {...register("name", { required: true })}
@@ -191,7 +193,9 @@ console.log(useAuth())
                   )}
                   <br />
                   <label className="label">
-                    <span className="label-text text-xl text-white">Enter Your Email</span>
+                    <span className="label-text text-xl text-white">
+                      Enter Your Email
+                    </span>
                   </label>
                   <input
                     type="email"
@@ -209,7 +213,7 @@ console.log(useAuth())
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-xl text-white">
-                     Enter a Password
+                      Enter a Password
                     </span>
                   </label>
                   <div className="relative">
