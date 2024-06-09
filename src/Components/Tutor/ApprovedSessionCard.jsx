@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { MdUpload } from "react-icons/md";
+
 const ApprovedSessionCard = ({ item }) => {
   const {
     _id,
@@ -83,7 +85,7 @@ const ApprovedSessionCard = ({ item }) => {
             <span className="block bg-gray-300 p-1 rounded-sm text-gray-700 text-sm font-semibold mb-1">
               Registration Fee:
             </span>
-            <p className="text-gray-900">₹ {fee}</p>
+            <p className="text-gray-900">$ {fee}</p>
           </div>
 
           <div>
@@ -92,14 +94,14 @@ const ApprovedSessionCard = ({ item }) => {
             </span>
             <p className="text-gray-900">{status}</p>
           </div>
-          <div>
-            <Link
-              to={`/dashboard/tutor/upload-materials/${_id}`}
-              className="btn w-full bg-sky-950 text-white rounded-md"
-            >
-              Upload Materials
-            </Link>
-          </div>
+        </div>
+        <div>
+          <Link
+            to={`/dashboard/tutor/upload-materials/${_id}`}
+            className="btn w-full bg-sky-900 text-white rounded-lg"
+          >
+            <MdUpload className="text-xl" /> Upload Materials
+          </Link>
         </div>
       </div>
     </div>

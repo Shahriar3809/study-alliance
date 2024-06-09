@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import { BsStripe } from "react-icons/bs";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -150,10 +150,11 @@ const CheckOutForm = ({ id }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <CardElement
+          className="p-5 border-2"
           options={{
             style: {
               base: {
-                fontSize: "16px",
+                fontSize: "20px",
                 color: "#424770",
                 "::placeholder": {
                   color: "#aab7c4",
@@ -166,11 +167,11 @@ const CheckOutForm = ({ id }) => {
           }}
         />
         <button
-          className="btn bg-sky-950 text-white font-bold mt-5"
+          className="btn bg-sky-950 w-28 text-white font-bold mt-5"
           type="submit"
           disabled={!stripe || !clientSecret}
         >
-          Pay
+          <BsStripe /> Pay
         </button>
         <p className="text-red-600">{error}</p>
         {transactionId && (

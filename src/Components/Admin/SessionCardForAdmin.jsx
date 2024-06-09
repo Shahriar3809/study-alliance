@@ -147,7 +147,9 @@ const SessionCardForAdmin = ({ item, refetch }) => {
             <p className="text-sm text-gray-400">{tutorEmail}</p>
           </div>
           <a
-            className="px-3 py-2 text-sm font-bold text-gray-100 transition-colors duration-300 transform  bg-black rounded cursor-pointer "
+            className={`px-3 py-2 text-sm font-bold text-gray-100 transition-colors duration-300 transform  ${
+              status === "rejected" ? "bg-red-600 " : "bg-green-600 "
+            } ${status === "pending" && "bg-yellow-700 "} rounded cursor-pointer`}
             role="button"
           >
             {status}

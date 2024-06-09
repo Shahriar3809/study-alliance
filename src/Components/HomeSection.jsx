@@ -33,6 +33,7 @@ const HomeSection = () => {
     refetch();
   };
 
+  console.log(approvedData)
 
   return (
     <div className="p-3">

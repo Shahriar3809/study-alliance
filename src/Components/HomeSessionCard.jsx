@@ -14,8 +14,8 @@ const HomeSessionCard = ({ item }) => {
 
   return (
     <div>
-      <div className="w-full pt-6 min-h-[300px] text-white flex flex-col px-4 py-3  rounded-md shadow-lg shadow-gray-600 bg-[#082f49]">
-        <div className="flex items-center justify-between">
+      <div className="w-full pt-6 h-[400px] text-white flex flex-col px-4 py-3  rounded-md shadow-lg shadow-gray-600 bg-[#082f49]">
+        <div className="flex items-center flex-grow-1 justify-between">
           <span className="text-sm font-light text-gray-800 dark:text-gray-400">
             Tutor Email: {tutorEmail}
           </span>

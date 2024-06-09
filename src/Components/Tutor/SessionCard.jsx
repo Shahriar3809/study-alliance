@@ -162,7 +162,7 @@ const SessionCard = ({ session, refetch }) => {
           {status === "rejected" ? (
             <button
               onClick={() => handleRequestAgain(_id)}
-              className="btn btn-primary"
+              className="btn bg-sky-900 text-white"
             >
               Request Again
             </button>

@@ -16,7 +16,7 @@ const Dashboard = () => {
     return (
       <div className=" flex ">
         <div className=" text-white min-h-screen p-3 bg-[#083344]">
-          <div onClick={() => setIsOpen(!isOpen)} className="text-2xl md:hidden bg-sky-800 w-12 p-3 rounded-full text-right">
+          <div onClick={() => setIsOpen(!isOpen)} className="text-xl md:hidden   p-1 rounded-full text-right">
             {isOpen ? <IoMdClose /> : <FaBars />}
           </div>
           <ul
