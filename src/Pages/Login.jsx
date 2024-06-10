@@ -1,6 +1,6 @@
 
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { FaGithub } from "react-icons/fa";
@@ -12,7 +12,7 @@ const Login = () => {
 
   const { logIn, googleLogin, githubLogin } = useAuth();
   const navigate = useNavigate();
-  // const location = useLocation();
+  const location = useLocation();
   const axiosPublic = useAxiosPublic()
 
   const handleLogin = (event) => {
@@ -31,14 +31,7 @@ const Login = () => {
            showConfirmButton: false,
            timer: 1500,
          });
-        //  const userInfo = {
-        //    name: user?.displayName,
-        //    email: user?.email,
-        //  };
-        // //  console.log(userInfo)
-        //  axiosPublic.put("/user", userInfo).then((res) => {
-        //    console.log(res?.data);
-        //  });
+       console.log(location)
         navigate(location.state?.from?.pathname || "/");
       })
       .catch((err) => {
@@ -93,7 +86,7 @@ const Login = () => {
        axiosPublic.put("/user", userInfo).then((res) => {
          console.log(res.data);
        });
-       navigate(location?.state ? location.state : "/");
+       navigate(location.state?.from?.pathname || "/");
        Swal.fire({
          position: "top-end",
          icon: "success",
