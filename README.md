@@ -7,7 +7,7 @@
 
 # Package: 
 - **Admin Email**: shahriar3809@gmail.com
-- **Admin Password**: 123456Aa*
+- **Admin Password**: 123456Aa#
 
 
 
