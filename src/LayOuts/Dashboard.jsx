@@ -13,6 +13,9 @@ const Dashboard = () => {
     const {isAdmin} = useAdmin();
     const {isTutor} = useTutor();
    const [isOpen, setIsOpen] = useState(true)
+  //  console.log(user)
+  //  console.log(isAdmin)
+  //  console.log(isTutor)
     return (
       <div className=" flex ">
         <div className=" text-white min-h-screen p-3 bg-[#083344]">

@@ -5,9 +5,13 @@
 
 ## Assignment Category: 0023
 
-# Package: 
+# Testing USER: 
 - **Admin Email**: shahriar3809@gmail.com
 - **Admin Password**: 123456Aa#
+- **Tutor Email**: monirhossain01823@gmail.com
+- **Tutor Password**: 123456Aa*
+
+
 
 
 

@@ -12,7 +12,7 @@ const RejectedCard = ({ item }) => {
         </div>
         <h1 className="mt-2 text-2xl text-center font-semibold text-gray-800 dark:text-white">
           {title}
-        </h1>
+        </h1> 
         <hr />
         <div className=" justify-between gap-3">
           <div className="flex items-center mt-2 text-gray-700 dark:text-orange-200">
